@@ -4,10 +4,10 @@ import { SessionSheet } from './SessionSheet';
 
 declare var global: any;
 
-global.Initialize = (): void => {
-  SessionSheet.Initialize();
+global.onOpen = (event): void => {
+  SessionSheet.onOpen(event);
 };
 
-global.Run = (event): void => {
+global.onEdit = (event): void => {
   SessionSheet.OnEdit(event);
 };

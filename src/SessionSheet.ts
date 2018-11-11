@@ -5,11 +5,12 @@ export class SessionSheet {
   static readonly MARGIN = 1;
   static sheet: SpreadSheet;
 
-  static Initialize() {
+  static onOpen(event) {
     SessionSheet.sheet = SpreadsheetApp.getActive();
+    console.log(event);
   }
 
-  static OnEdit(event: any) {
+  static OnEdit(event) {
     console.log(event);
     console.log(SessionSheet.sheet);
   }
