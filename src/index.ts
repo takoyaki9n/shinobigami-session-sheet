@@ -1,12 +1,13 @@
 import URLFetchRequestOptions = GoogleAppsScript.URL_Fetch.URLFetchRequestOptions;
 
+import { SessionSheet } from './SessionSheet';
+
 declare var global: any;
 
-global.main = (): void => {
-  const url = 'http://httpbin.org/get';
-  const params: URLFetchRequestOptions = {
-    method: 'get'
-  };
-  const response = UrlFetchApp.fetch(url, params);
-  Logger.log(response.getContentText('UTF-8'));
+global.Initialize = (): void => {
+  SessionSheet.Initialize();
+};
+
+global.Run = (event): void => {
+  SessionSheet.OnEdit(event);
 };
