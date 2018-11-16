@@ -17,13 +17,32 @@ namespace SheetConst {
 export class SessionSheet {
   private static readonly PROPERTIES = PropertiesService.getScriptProperties();
 
+<<<<<<< HEAD
   static SESSION_CONFIG(size: number): number {
     SessionSheet.PROPERTIES.setProperty(PropertyKeys.SIZE, size.toString());
     return size;
+||||||| merged common ancestors
+  static Initialize() {
+    SessionSheet.sheet = SpreadsheetApp.getActive();
+=======
+  static onOpen(event) {
+    SessionSheet.sheet = SpreadsheetApp.getActive();
+    console.log(event);
+>>>>>>> ce0d4bf0cb694922b1f0f86c45db2331511dc94d
   }
 
+<<<<<<< HEAD
   static onEdit() {
     const sessionSheet = new SessionSheet();
+||||||| merged common ancestors
+  static OnEdit(event: any) {
+    console.log(event);
+    console.log(SessionSheet.sheet);
+=======
+  static OnEdit(event) {
+    console.log(event);
+    console.log(SessionSheet.sheet);
+>>>>>>> ce0d4bf0cb694922b1f0f86c45db2331511dc94d
   }
 
   private size: number;
